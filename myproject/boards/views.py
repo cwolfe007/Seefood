@@ -5,5 +5,5 @@ from .models import Board
 # Create your views here.
 def home(request):
 	boards = Board.objects.all()
-	return render(request,'home.html',{'boards':boards})
+	return render(request,'fancyhome.html',{'boards':boards})
 
