@@ -7,6 +7,8 @@ def home(request):
     boards = Board.objects.all()
     return render(request,'home.html',{'boards':boards})
 
+def signup(request):
+    return render(request, 'signup.html')
 
 def board_topics(request,pk):
     board = get_object_or_404(Board, pk=pk)
