@@ -26,7 +26,7 @@ class SignUpTests(TestCase):
 
     def test_contains_form(self):
         form = self.response.context.get('form')
-        self.assertIsInstance(form, UserCreationForm)
+        self.assertIsInstance(form, SignUpForm)
 
 
     def test_form_inputs(self):

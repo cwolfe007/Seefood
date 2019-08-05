@@ -29,8 +29,8 @@ class PasswordResetTests(TestCase):
         '''
         The view must contain two inputs: crsf and email
         '''
-        self.assertContains(self.response, '<input',2)
-        self.assertContains(self.response, 'type=email',1)
+        self.assertContains(self.response, '<input', 2)
+        self.assertContains(self.response, 'type="email"', 1)
 
 class SuccessfulPasswordResetTests(TestCase):
     def setUp(self):
@@ -51,7 +51,7 @@ class SuccessfulPasswordResetTests(TestCase):
 class InvalidPasswordResetTests(TestCase):
     def setUp(self):
         url = reverse('password_reset')
-        self.response = self.client.post(url, {'email': 'doesntexist#email.com'})
+        self.response = self.client.post(url, {'email': 'doesntexist@email.com'})
 
     def test_redirection(self):
         '''
