@@ -1,21 +1,17 @@
 from django.test import TestCase
-from  django.urls import reverse
+from django.urls import reverse
 from django.contrib.auth.models import User
 from django.urls import resolve
-from ..views import home, board_topics, new_topic
+from ..views import new_topic
 from ..models import Board, Topic, Post
 from ..forms import NewTopicForm
-
-
-
-
-
 
 
 class NewTopicTests(TestCase):
     def setUp(self):
         Board.objects.create(name='Djano', description='Django baord')
         User.objects.create_user(username='john', email='john@doe.com', password='123')
+        self.client.login(username='john', password='123')
 
     def test_new_topic_not_found_status_code(self):
         url = reverse('new_topic', kwargs={'pk':99})
